@@ -1,0 +1,5 @@
+#include <stdio.h>
+main()
+{
+    printf("你好，世界！\n");
+}
