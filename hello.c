@@ -1,6 +1,15 @@
 #include <stdio.h>
-main()
+int main()
 {
-    printf("你好，世界！\n");
-    printf("Hello, world!\n");
+    printf("Hello, ");
+    printf("world!");
+    printf("\c");
+
+    return 0;
 }
+//练习1-2:
+// hello.c:6:13: warning: unknown escape sequence '\c' [-Wunknown-escape-sequence]
+//     printf("\c");
+//             ^~
+// 1 warning generated.
+// 警告：未知的转义字符序列。Ps：推测\c可能没有实际意义
