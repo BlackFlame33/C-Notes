@@ -23,11 +23,22 @@
 // }
 // 练习1-4 摄氏度转换成相应华氏度的转换表
 // 华氏度 = （9/5） * 摄氏度 + 32
+//#include <stdio.h>
+//int main(){
+//    float fahr = 0;
+//    printf("华氏度\t摄氏度\n");
+//    for (int celsius = 1; celsius < 300;celsius += 20)
+//    {
+//        fahr = (9.0/5.0) * celsius + 32;
+//        printf("%3d\t%6.1f\n", celsius, fahr);
+//    }
+//}
+// 练习1-5 以逆序打印温度转换表
 #include <stdio.h>
 int main(){
-    float fahr = 0;
+    float fahr;
     printf("华氏度\t摄氏度\n");
-    for (int celsius = 1; celsius < 300;celsius += 20)
+    for (int celsius = 301; celsius >= 0;celsius -= 20)
     {
         fahr = (9.0/5.0) * celsius + 32;
         printf("%3d\t%6.1f\n", celsius, fahr);
