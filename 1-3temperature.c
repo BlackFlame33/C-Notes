@@ -26,13 +26,10 @@
 #include <stdio.h>
 int main(){
     float fahr = 0;
-    int celsius = 1;
-    float upper = 300;
     printf("华氏度\t摄氏度\n");
-    for (; celsius < upper;)
+    for (int celsius = 1; celsius < 300;celsius += 20)
     {
         fahr = (9.0/5.0) * celsius + 32;
         printf("%3d\t%6.1f\n", celsius, fahr);
-        celsius += 20;
     }
 }
