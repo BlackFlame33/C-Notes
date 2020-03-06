@@ -71,7 +71,7 @@ int main(){
     ;//单独放是为了醒目
     printf("\n%.0f\n", nc);
     return 0;
-}*/
+}
 
 //  统计行数
 #include <stdio.h>
@@ -82,6 +82,23 @@ int main(){
         if (c == '\n')//    '='为赋值运算符，'=='为相等的逻辑关系
             ++nl;
     printf("\t行数：%d\n", nl);
+
+    return 0;
+}*/
+//  练习1-8 统计空格、制表符、换行符
+#include <stdio.h>
+int main(){
+    int blanks = 0, tabs = 0, newlines = 0;
+    int c;
+    while ((c=getchar()) != EOF)
+        if (c == ' ')
+            ++blanks;
+        else if(c == '\t')
+            ++tabs;
+        else if(c == '\n')
+            ++newlines;
+
+    printf("\t空格：%d\t制表符：%d\t换行符：%d\n", blanks, tabs, newlines);
 
     return 0;
 }
