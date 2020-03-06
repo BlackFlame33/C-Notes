@@ -40,12 +40,48 @@ int main()
 {
     printf("请键入后按回车键：\n");
     printf("表达式getchar()!=EOF的值是：%d\n", getchar() != EOF);
-}*/
+}
 
 //   练习1-7 编写一个打印EOF值的程序
 #include <stdio.h>
 int main(){
     printf("%d", EOF);
         
+    return 0;
+}
+
+//  对字符进行计数
+#include <stdio.h>
+int main(){
+    long nc = 0;
+    
+    while (getchar() != EOF)
+        ++nc;
+    printf("%ld\n", nc);
+    
+
+    return 0;
+}
+
+//  for循环精简字符计数程，并使用可处理更大数字的类型double
+#include <stdio.h>
+int main(){
+    double nc;
+    for (nc = 0;getchar() != EOF;++nc)
+    ;//单独放是为了醒目
+    printf("\n%.0f\n", nc);
+    return 0;
+}*/
+
+//  统计行数
+#include <stdio.h>
+int main(){
+    int nl = 0;
+    int c;
+    while ((c=getchar()) != EOF)
+        if (c == '\n')//    '='为赋值运算符，'=='为相等的逻辑关系
+            ++nl;
+    printf("\t行数：%d\n", nl);
+
     return 0;
 }
