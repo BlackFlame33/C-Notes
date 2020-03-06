@@ -16,7 +16,7 @@ int main()
 
     while ((c = getchar()) != EOF) //  EOF: end of file, 文件结束
         putchar(c);
-}*/
+}
 
 练习1 - 6 验证表达式getchar() != EOF的值时0还是1
 #include <stdio.h>
@@ -40,4 +40,12 @@ int main()
 {
     printf("请键入后按回车键：\n");
     printf("表达式getchar()!=EOF的值是：%d\n", getchar() != EOF);
+}*/
+
+//   练习1-7 编写一个打印EOF值的程序
+#include <stdio.h>
+int main(){
+    printf("%d", EOF);
+        
+    return 0;
 }
