@@ -101,7 +101,7 @@ int main(){
     printf("\t空格：%d\t制表符：%d\t换行符：%d\n", blanks, tabs, newlines);
 
     return 0;
-}*/
+}
 
 //  练习1-9 编写一个将如数复制到输出的程序，并将其中连续的多个空格用一个空格代替
 #include <stdio.h>
@@ -128,4 +128,31 @@ int main()
     }
 
     return 0;
-}//inspace在这里相当于flag，用于判断输入的空格前一个字符是不是空格，以进行替代处理，是在是妙。
+}//inspace在这里相当于flag，用于判断输入的空格前一个字符是不是空格，以进行替代处理，是在是妙。*/
+
+//  练习1-10    编写一个将输入复制到输出的程序。并将其中的制表符替换为\t，将回退符替换为\b，将反斜杠替换为\\。这样可以将制表符和回退符以可见的方式显示出来。
+#include <stdio.h>
+int main()
+{
+    int c;
+    while ((c=getchar()) != EOF)
+    {
+        if (c == '\t')
+            printf(" \\t ");
+        else if (c == '\b')
+        {
+            printf(" \\b ");
+        }
+        else if (c == '\\')
+        {
+            printf(" \\\\ ");
+        }
+        else
+        {
+            putchar(c);
+        }
+        
+    }
+
+    return 0;
+}//主要要注意的是：1、全等。2、打印时'\'需要用'\\'
