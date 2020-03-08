@@ -84,7 +84,7 @@ int main(){
     printf("\t行数：%d\n", nl);
 
     return 0;
-}*/
+}
 //  练习1-8 统计空格、制表符、换行符
 #include <stdio.h>
 int main(){
@@ -101,4 +101,31 @@ int main(){
     printf("\t空格：%d\t制表符：%d\t换行符：%d\n", blanks, tabs, newlines);
 
     return 0;
-}
+}*/
+
+//  练习1-9 编写一个将如数复制到输出的程序，并将其中连续的多个空格用一个空格代替
+#include <stdio.h>
+int main()
+{
+    int c;
+    int inspace = 0;
+
+    while ((c = getchar()) != EOF)
+    {
+        if (c == ' ')
+        {
+            if (inspace == 0)
+            {
+                putchar(c);
+                inspace = 1;
+            }
+        }
+        else
+        {
+            putchar(c);
+            inspace = 0;
+        }
+    }
+
+    return 0;
+}//inspace在这里相当于flag，用于判断输入的空格前一个字符是不是空格，以进行替代处理，是在是妙。
