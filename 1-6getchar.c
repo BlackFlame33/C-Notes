@@ -228,9 +228,9 @@ int main(){
 //         fputc('\n', f);
 //     fclose(f);
 
-//     /* 4. input file contains word/ 
+//     /* 4. input file contains word/
 //      *    {huge sequence of whitespace of different kinds}
-//      *    /word 
+//      *    /word
 //      */
 //     f = fopen("test4", "w");
 //     assert(f != NULL);
@@ -241,7 +241,7 @@ int main(){
 //     fclose(f);
 
 //     /* 5. input file contains 66000 single letter words,
-//      *    66 to the line 
+//      *    66 to the line
 //      */
 //     f = fopen("test5", "w");
 //     assert(f != NULL);
@@ -261,18 +261,29 @@ int main(){
 
 //练习1-12  以每行一个单词的形式打印其输入
 #include <stdio.h>
-int main(){
+#define OUT 1
+#define IN 0
+int main()
+{
     int c;
-    while ((c=getchar()) != EOF)
+    int state = IN;
+    while ((c = getchar()) != EOF)
     {
-        if (c==' ' || c=='\n' || c=='\t' )
+        if (c == ' ' || c == '\t')
         {
-            putchar(c);
-            printf("\n");
+            if (state == IN)
+            {
+                state = OUT;
+                putchar(c);
+                printf("\n");
+            }
         }
         else
+        {
+            state = IN;
             putchar(c);
+        }
     }
 
     return 0;
-}//TO-DO:程序最后会有一行回车，想办法解决！
+}
