@@ -259,7 +259,7 @@ int main(){
 //     return 0;
 // }
 
-//练习1-12  以每行一个单词的形式打印其输入
+/*//练习1-12  以每行一个单词的形式打印其输入
 #include <stdio.h>
 #define OUT 1
 #define IN 0
@@ -284,6 +284,28 @@ int main()
             putchar(c);
         }
     }
+
+    return 0;
+}*/
+
+//统计各个数字、空白符以及所有其他字符出现的次数
+#include <stdio.h>
+int main(){
+    int c, i, nwhite, nother;
+    nwhite = nother =0;
+    int ndigit[10];
+    for(i=0 ; i<=9 ; ++i)
+        ndigit[i] = 0;
+    while((c=getchar()) != EOF)
+        if('0'<=c && c<='9')
+            ++ndigit[c-'0'];
+        else if(c==' ' || c=='\n' || c=='\t')
+            ++nwhite;
+        else
+            ++nother;
+    for(i=0 ; i<=9 ; ++i)
+        printf("%d:%d次\n", i, ndigit[i]);
+    printf("\nwhite space = %d, other = %d", nwhite, nother);
 
     return 0;
 }
