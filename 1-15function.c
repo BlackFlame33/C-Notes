@@ -36,7 +36,7 @@ double temperature(int F)
     C = (5 / 9.0) * (F - 32);
 
     return C;
-}*/
+}
 
 //读入一组文本，并把最长的文本行打印出来。
 #include <stdio.h>
@@ -91,6 +91,65 @@ void copy(char to[], char from[])
     /*为什么要用while，不用for？
     因为在这个循环操作中，from的下标是未知的，也就是说不清楚循环的步数。
     使用while可以设定为当复制的当前字符为EOF的时候便可结束函数。
-    */
+    
+        ++i;
+}*/
+
+//练习1-16  打印任意长度的输入行的长度，并尽可能地打印文本
+//实在是没懂，这个程序功能上依旧是打印最长行
+#include <stdio.h>
+#define MAXLENGTH 20
+int getlines(char[], int);
+void copy(char[], char[]);
+int main()
+{
+    int len, max = 0;
+    char line[MAXLENGTH], longest[MAXLENGTH];
+    while ((len = getlines(line, MAXLENGTH)) > 0)
+        if (len > max)
+        {
+            max = len;
+            copy(longest, line);
+        }
+    if (max > 0)
+    {
+        if (max > MAXLENGTH)
+        {
+            printf("\n\nStorage limit exceeded by : %d", max - MAXLENGTH);
+            printf("\nString length : %d", max);
+            printf("\n%s", longest);
+        }
+        else
+            printf("%s", longest);
+    }
+    printf("\n");
+    return 0;
+}
+
+int getlines(char line[], int limit)
+{
+    int i, c;
+    for (i = 0; i < limit - 1 && (((c = getchar()) != EOF) && (c != '\n')); i++)
+        line[i] = c;
+    if (i == (limit - 1))
+    {
+        while ((c = getchar()) != '\n')
+        {
+            ++i;
+        }
+    }
+    if (c == '\n')
+    {
+        line[i] = c;
+        ++i;
+    }
+    line[i] = '\0';
+    return i;
+}
+
+void copy(char to[], char from[])
+{
+    int i = 0;
+    while ((to[i] = from[i]) != '\0')
         ++i;
 }
